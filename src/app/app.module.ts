@@ -8,6 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BasicInputComponent } from './basic-input/basic-input.component';
 import { CardFancyExampleComponent } from './card-fancy-example/card-fancy-example.component';
+import { RequestGetterComponent } from './request-getter/request-getter.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
+import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +23,9 @@ import { CardFancyExampleComponent } from './card-fancy-example/card-fancy-examp
     MatSlideToggleModule,
     BasicInputComponent,
     CardFancyExampleComponent,
+    RequestGetterComponent,
+    HttpClientModule,
+    ExerciseFormComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

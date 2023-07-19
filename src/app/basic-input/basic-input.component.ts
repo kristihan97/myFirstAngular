@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-basic-input',
@@ -14,6 +15,15 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatFormFieldModule,
     MatInputModule,
     MatSlideToggleModule,
+    CommonModule,
   ],
 })
-export class BasicInputComponent {}
+export class BasicInputComponent implements OnInit {
+  myString: string = '{"name": "John", "age": 30, "city": "New York"}';
+  ngOnInit(): void {
+    let myObj = JSON.parse(this.myString);
+    let newStr = JSON.stringify(myObj);
+    // console.log(this.myString);
+    // console.log(newStr);
+  }
+}
