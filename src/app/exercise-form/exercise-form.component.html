@@ -1,1 +1,53 @@
-<p>exercise-form works!</p>
+<ul style="color: black">
+  <li *ngFor="let force of forces">{{ force }}</li>
+</ul>
+<br /><br />
+<button mat-raised-button (click)="isEditable = !isEditable">
+  {{ !isEditable ? "Enable edit mode" : "Disable edit mode" }}
+</button>
+
+<mat-stepper linear #stepper>
+  <mat-step [stepControl]="firstCtrl" [editable]="isEditable">
+    <form [formGroup]="firstCtrl">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <mat-select formControlName="firstStep">
+          <mat-option *ngFor="let force of forces" [value]="force">{{
+            force
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button (click)="nextStep(stepper, 'firstCtrl')">
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secCtrl" [editable]="isEditable">
+    <form [formGroup]="secCtrl">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <mat-select formControlName="secStep">
+          <mat-option *ngFor="let cat of categories" [value]="cat">
+            {{ cat }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="nextStep(stepper, 'secCtrl')">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiGetterService {
-  private apiUrl = 'https://musclewiki.p.rapidapi.com/exercises';
+  private apiUrl = 'https://musclewiki.p.rapidapi.com/exercises/attributes';
 
   private httpOptions = {
     headers: new HttpHeaders({

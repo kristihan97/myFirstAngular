@@ -13,9 +13,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
-
+import { FormGroup } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ExerciseFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,7 +31,14 @@ import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
     CardFancyExampleComponent,
     RequestGetterComponent,
     HttpClientModule,
-    ExerciseFormComponent,
+
+    MatButtonModule,
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
