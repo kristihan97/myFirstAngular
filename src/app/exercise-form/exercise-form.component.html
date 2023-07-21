@@ -9,7 +9,7 @@
 <mat-stepper linear #stepper>
   <mat-step [stepControl]="firstCtrl" [editable]="isEditable">
     <form [formGroup]="firstCtrl">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-template matStepLabel>Force type</ng-template>
       <mat-form-field>
         <mat-label>Name</mat-label>
         <mat-select formControlName="firstStep">
@@ -27,7 +27,7 @@
   </mat-step>
   <mat-step [stepControl]="secCtrl" [editable]="isEditable">
     <form [formGroup]="secCtrl">
-      <ng-template matStepLabel>Fill out your address</ng-template>
+      <ng-template matStepLabel>Category</ng-template>
       <mat-form-field>
         <mat-label>Address</mat-label>
         <mat-select formControlName="secStep">
@@ -42,12 +42,32 @@
       </div>
     </form>
   </mat-step>
+  <mat-step [stepControl]="thirdCtrl" [editable]="isEditable">
+    <form [formGroup]="thirdCtrl">
+      <ng-template matStepLabel>Muscle group</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <mat-select formControlName="thirdStep">
+          <mat-option *ngFor="let muscle of muscles" [value]="muscle">
+            {{ muscle }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="nextStep(stepper, 'thirdCtrl')">
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="showResults()">Results</button>
     </div>
   </mat-step>
 </mat-stepper>
