@@ -16,6 +16,7 @@ interface ExerciseData {
   exercises: string[];
   [key: string]: string | string[];
 }
+const start = new Date();
 
 @Component({
   selector: 'app-exercise-form',
@@ -97,6 +98,7 @@ export class ExerciseFormComponent implements OnInit {
     this.thirdCtrl.get('thirdStep')!.valueChanges.subscribe((value: string) => {
       console.log('Third step value changed: ', value);
     });
+    console.log(start.getUTCDate());
   }
 
   nextStep(stepper: MatStepper, controlName: keyof Selections): void {
